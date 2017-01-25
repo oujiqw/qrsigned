@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.ui.templateDir" value="template" />
+	<constant name="struts.ui.templateSuffix" value="ftl" />
+
+	<package name="default" namespace="/" extends="struts-default"></package>
+
+	<package name="tree" namespace="/qr" extends="default">
+		<action name="getqr" class="action.GetqrAction" method="saveQrImage">
+		</action>
+	</package>
+	<package name="login" namespace="/Login" extends="default">
+		<action name="Login" class="action.LoginAction" method="login">
+		 <result name="fail">/login.jsp</result> 
+		 <result name="success">/main.jsp</result>
+		</action>
+	</package>
+	<package name="exit" namespace="/exit" extends="default">
+		<action name="exit" class="action.LoginAction" method="exit">
+		<!--  <result name="fail">/login.jsp</result> 
+		 <result name="success">/main.jsp</result> -->
+		</action>
+	</package>
+	<package name="email" namespace="/email" extends="default">
+		<action name="sendEmail" class="action.MailAction" method="simple">
+		<!--  <result name="fail">/login.jsp</result> 
+		 <result name="success">/main.jsp</result> -->
+		</action>
+	</package>
+	<package name="attachmentSend" namespace="/attachmentSend" extends="default">
+		<action name="attachmentSend" class="action.MailAction" method="attachmentSend">
+		<!--  <result name="fail">/login.jsp</result> 
+		 <result name="success">/main.jsp</result> -->
+		</action>
+	</package>
+	<package name="userinfo" namespace="/selectinfo" extends="default">
+		<action name="selectinfo" class="action.UserinfoAction" method="selectPage">
+		<!--  <result name="fail">/login.jsp</result> 
+		 <result name="success">/main.jsp</result> -->
+		</action>
+	</package>
+	<package name="saveinfo" namespace="/saveinfo" extends="default">
+		<action name="saveuser" class="action.UserinfoAction" method="saveUserinfo">
+		 <!--  <result name="fail">/login.jsp</result> 
+		 <result name="success">/main.jsp</result> -->
+		</action>
+	</package>
+	<package name="userlist" namespace="/userlist" extends="default">
+		<action name="userlist" class="action.UserinfoAction" method="listUser">
+		 <!--  <result name="fail">/login.jsp</result> 
+		 <result name="success">/main.jsp</result> -->
+		</action>
+	</package>
+	<package name="delete" namespace="/delete" extends="default">
+		<action name="delete" class="action.UserinfoAction" method="delete">
+		<!--   <result name="fail">/login.jsp</result> 
+		 <result name="delete">/main.jsp</result> -->
+		</action>
+	</package>
+	<package name="reset" namespace="/reset" extends="default">
+		<action name="reset" class="action.UserinfoAction" method="reset">
+		<!--   <result name="fail">/login.jsp</result> 
+		 <result name="delete">/main.jsp</result> -->
+		</action>
+	</package>
+	<package name="qqcheck" namespace="/qqcheck" extends="default">
+		<action name="qqcheck" class="action.QqcheckAction" method="qqcheck">
+		 <!--  <result name="fail">/login.jsp</result> 
+		 <result name="success">/main.jsp</result> -->
+		</action>
+	</package>
+	
+	<package name="signed" namespace="/signed" extends="default">
+		<action name="signed" class="action.SignedAction" method="signed">
+		</action>
+	</package>
+	
+
+</struts>
